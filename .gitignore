@@ -1,0 +1,6 @@
+venv/
+**/__pycache__/
+logs/
+build/
+dist/
+tkinter_app.spec
