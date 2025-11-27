@@ -1,0 +1,9 @@
+date,trade_type,symbol,strikes,entry_action,entry_time,entry_price,exit_action,exit_price,profit,status,strategy
+2025-11-26,Bear Call,SPX,0/6830,BOT,2025-11-26 20:29:02,3.55,,,0.00,open,trendstochrsi
+2025-11-26,Bear Call,SPX,0/6830,SLD,2025-11-26 20:36:06,2.35,,,0.00,open,trendstochrsi
+2025-11-26,Bull Put,SPX,0/6800,BOT,2025-11-26 20:38:48,2.65,,,0.00,open,trendstochrsi
+2025-11-26,Bull Put,SPX,0/6800,SLD,2025-11-26 20:54:04,2.50,,,0.00,open,trendstochrsi
+2025-11-26,Bull Put,SPX,0/6805,BOT,2025-11-26 21:11:28,3.15,,,0.00,open,trendstochrsi
+2025-11-26,Bull Put,SPX,0/6805,SLD,2025-11-26 21:12:04,3.20,,,0.00,open,trendstochrsi
+2025-11-26,Bear Call,SPX,0/6830,BOT,2025-11-26 21:12:33,2.65,,,0.00,open,trendstochrsi
+2025-11-26,Bear Call,SPX,0/6830,SLD,2025-11-26 21:29:04,2.00,,,0.00,open,trendstochrsi
