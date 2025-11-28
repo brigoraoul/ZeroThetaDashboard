@@ -106,12 +106,11 @@ filtered_df = df[
 
 # Key Metrics
 st.header("Key Metrics")
-col1, col2, col3, col4, col5, col6 = st.columns(6)
+col1, col2, col3, col4, col5 = st.columns(5)
 
 # For profit calculations, use only BOT rows to avoid double-counting
 # (each trade pair has identical profit on both BOT and SLD rows)
 bot_rows = filtered_df[filtered_df['entry_action'] == 'BOT']
-closed_bot_rows = bot_rows[bot_rows['status'] == 'closed']
 
 with col1:
     days_traded = filtered_df['date'].dt.date.nunique()
@@ -122,19 +121,16 @@ with col2:
     st.metric("Total Trades", len(bot_rows))
 
 with col3:
-    st.metric("Closed Trades", len(closed_bot_rows))
-
-with col4:
     avg_profit = bot_rows['profit'].mean()
     st.metric("Avg Profit", f"${avg_profit:.2f}")
 
-with col5:
+with col4:
     total_profit = bot_rows['profit'].sum()
     st.metric("Total Profit", f"${total_profit:.2f}")
 
-with col6:
-    if len(closed_bot_rows) > 0:
-        win_rate = (closed_bot_rows['profit'] > 0).sum() / len(closed_bot_rows) * 100
+with col5:
+    if len(bot_rows) > 0:
+        win_rate = (bot_rows['profit'] > 0).sum() / len(bot_rows) * 100
         st.metric("Win Rate", f"{win_rate:.1f}%")
     else:
         st.metric("Win Rate", "N/A")
