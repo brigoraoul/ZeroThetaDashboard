@@ -6,6 +6,74 @@ import os
 # Page config
 st.set_page_config(page_title="Zero Theta Dashboard", layout="wide")
 
+# Custom CSS for professional styling
+st.markdown("""
+    <style>
+    /* Main container styling */
+    .block-container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Header styling */
+    h1 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid #0068c9;
+        padding-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-weight: 500;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-weight: 500;
+    }
+
+    /* Metric cards styling */
+    [data-testid="stMetricValue"] {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    [data-testid="stMetricLabel"] {
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /* Dataframe styling */
+    .dataframe {
+        font-size: 0.9rem;
+    }
+
+    /* Sidebar styling */
+    [data-testid="stSidebar"] h2 {
+        border-bottom: 2px solid #0068c9;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Chart styling */
+    .stLineChart, .stBarChart {
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    /* Remove excessive padding */
+    .element-container {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Clean table borders */
+    .stDataFrame {
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Load data
 @st.cache_data
 def load_data():
@@ -62,7 +130,7 @@ def load_data():
 df = load_data()
 
 # Title
-st.title("📊 Zero Theta Dashboard")
+st.title("Zero Theta Dashboard")
 
 # Check if dataframe is empty
 if df.empty:
@@ -98,7 +166,7 @@ filtered_df = df[
 ]
 
 # Key Metrics
-st.header("Key Metrics")
+st.header("Performance Overview")
 col1, col2, col3, col4, col5 = st.columns(5)
 
 # For profit calculations, use only BOT rows to avoid double-counting
@@ -128,18 +196,24 @@ with col5:
     else:
         st.metric("Win Rate", "N/A")
 
+# Separator
+st.divider()
+
 # Daily Summary
-st.header("Daily Summary")
+st.header("Daily Performance")
 # Use only BOT rows to avoid double-counting profits
 daily_summary = bot_rows.groupby(bot_rows['date'].dt.date).agg({
     'profit': ['sum', 'mean', 'count']
 }).round(2)
 daily_summary.columns = ['Total Profit', 'Avg Profit', 'Trades']
 daily_summary = daily_summary.sort_index(ascending=False)
-st.dataframe(daily_summary, use_container_width=True)
+st.dataframe(daily_summary, use_container_width=True, height=300)
+
+# Separator
+st.divider()
 
 # Charts
-st.header("Charts")
+st.header("Analytics")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -154,8 +228,11 @@ with col2:
     strategy_profit = bot_rows.groupby('strategy')['profit'].sum()
     st.bar_chart(strategy_profit)
 
+# Separator
+st.divider()
+
 # Detailed Trade Log
-st.header("Detailed Trade Log")
+st.header("Trade Log")
 display_df = filtered_df.copy()
 display_df['date'] = display_df['date'].dt.strftime('%Y-%m-%d')
 display_df['entry_time'] = display_df['entry_time'].dt.strftime('%Y-%m-%d %H:%M:%S')
