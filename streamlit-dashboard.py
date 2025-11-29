@@ -77,12 +77,6 @@ date_range = st.sidebar.date_input(
     key='date_range'
 )
 
-status_filter = st.sidebar.multiselect(
-    "Status",
-    options=df['status'].unique(),
-    default=df['status'].unique()
-)
-
 trade_type_filter = st.sidebar.multiselect(
     "Trade Type",
     options=df['trade_type'].unique(),
@@ -99,7 +93,6 @@ strategy_filter = st.sidebar.multiselect(
 filtered_df = df[
     (df['date'].dt.date >= date_range[0]) &
     (df['date'].dt.date <= date_range[1]) &
-    (df['status'].isin(status_filter)) &
     (df['trade_type'].isin(trade_type_filter)) &
     (df['strategy'].isin(strategy_filter))
 ]

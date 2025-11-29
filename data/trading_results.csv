@@ -7,7 +7,11 @@ date,trade_type,symbol,strikes,entry_action,entry_time,entry_price,exit_action,e
 2025-11-26,Bull Put,SPX,0/6805,SLD,2025-11-26 21:12:04,3.20,,,0.00,open,manual trading
 2025-11-26,Bear Call,SPX,0/6830,BOT,2025-11-26 21:12:33,2.65,,,0.00,open,manual trading
 2025-11-26,Bear Call,SPX,0/6830,SLD,2025-11-26 21:29:04,2.00,,,0.00,open,manual trading
-2025-11-28,Bull Put,SPX,0/6815,BOT,2025-11-28 17:26:11,5.20,,,0.00,open,TrendStochRSI
-2025-11-28,Bull Put,SPX,0/6810,BOT,2025-11-28 17:30:26,4.40,,,0.00,open,TrendStochRSI
-2025-11-28,Bull Put,SPX,0/6810,SLD,2025-11-28 17:34:19,2.75,,,0.00,open,TrendStochRSI
-2025-11-28,Bull Put,SPX,0/6815,SLD,2025-11-28 17:35:25,4.10,,,0.00,open,TrendStochRSI
+2025-11-28,Bull Put,SPX,0/6815,BOT,2025-11-28 17:26:11,5.20,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6810,BOT,2025-11-28 17:30:26,4.40,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6810,SLD,2025-11-28 17:34:19,2.75,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6815,SLD,2025-11-28 17:35:25,4.10,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6820,BOT,2025-11-28 17:59:48,4.25,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6820,SLD,2025-11-28 18:06:51,4.10,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6815,BOT,2025-11-28 18:28:47,3.95,,,0.00,open,manual trading
+2025-11-28,Bull Put,SPX,0/6815,SLD,2025-11-28 18:45:24,4.10,,,0.00,open,manual trading
